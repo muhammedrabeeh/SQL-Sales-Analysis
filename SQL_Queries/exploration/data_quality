@@ -1,0 +1,9 @@
+SELECT COUNT(*) FROM sales WHERE customer_id IS NULL;
+SELECT COUNT(*) FROM sales WHERE product_id IS NULL;
+(to Check null IDs)
+
+SELECT sale_id, COUNT(*)
+FROM sales
+GROUP BY sale_id
+HAVING COUNT(*) > 1;
+(to check Duplicate)
