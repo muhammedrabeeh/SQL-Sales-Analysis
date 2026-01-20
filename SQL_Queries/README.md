@@ -1,5 +1,5 @@
 # SQL Queries 
-this folder contain SQL queries used fro analysis 
+this folder contain SQL queries used for analysis 
 - Joins
 - Aggregations
 - window functions
