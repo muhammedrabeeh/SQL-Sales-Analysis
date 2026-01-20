@@ -1,0 +1,3 @@
+SELECT * FROM orders LIMIT 10;
+SELECT * FROM returns LIMIT 10;
+SELECT * FROM people LIMIT 10;
