@@ -1,0 +1,9 @@
+SELECT
+    c.customer_name,
+    SUM(s.sales_amount) AS total_sales,
+    SUM(s.profit) AS total_profit
+FROM sales s
+JOIN customer c
+ON s.customer_id = c.customer_id
+GROUP BY c.customer_name
+ORDER BY total_sales DESC;
