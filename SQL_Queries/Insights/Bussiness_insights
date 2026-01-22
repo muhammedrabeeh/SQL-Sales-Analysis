@@ -1,0 +1,41 @@
+I worked on this project to understand how the business is performing in terms of sales, profit, customers, and products.
+The goal is to find patterns and insights that could help business decisions.
+
+#Overall Sales Performance
+The company is generating steady sales overall, but profit is not consistent across all sales. Some sales contribute much more to profit than others.
+Looking only at total sales can be misleading. Profit needs to be analyzed separately to understand real performance.
+
+#Customer Behavior
+After analyzing customer-level sales:
+-A small number of customers contribute a large share of total revenue and profit
+-Many customers make only occasional or low-value purchases
+-The business depends heavily on a small group of high-value customers.
+
+ suggestion:
+-Focus on retaining top customers with loyalty programs or special offers
+-Analyze why low-value customers are not purchasing more frequently
+
+#Product Performance
+Product analysis showed that:
+-Some products sell very well but generate low profit
+-Other products sell less but have higher profit margins
+-High-selling products are not always the most profitable.
+
+ suggestion:
+-Promote products with higher margins
+-Review pricing or costs for products that sell a lot but make little profit
+
+#Sales Trends Over Time
+-Monthly sales analysis shows clear ups and downs across different months.
+-Some months consistently perform better than others.
+-Sales are affected by seasonality or timing, not random behavior.
+
+ suggestion:
+-Increase marketing before strong months
+-Prepare inventory and staffing during peak periods
+
+#Overall Business Takeaway
+-The business can increase profit by focusing on high-margin products
+-Retaining top customers can have a big impact on revenue
+-Planning around seasonal trends can improve efficiency
+-This analysis shows how SQL can be used not just to extract data, but to support real business decisions.
