@@ -7,3 +7,4 @@ This folder contain SQL queries used for analysis
 - Joins
 - Aggregations
 - window functions
+- views 
