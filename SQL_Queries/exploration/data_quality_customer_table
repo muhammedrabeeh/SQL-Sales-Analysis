@@ -44,6 +44,11 @@ set ship_date= split_part(trim(ship_date),' ',1);
 update customer
 set order_date= split_part(trim(order_date),' ',1); 
 
+Data type check 
+SELECT column_name, data_type
+FROM information_schema.columns
+WHERE table_name = 'customer';
+
 -Basic preprocessing was applied to isolate date values
 -Referential integrity verified
 -Legitimate duplicates preserved
