@@ -1,0 +1,50 @@
+Null VALUE CHECK
+SELECT COUNT(*) FROM sales WHERE customer_id IS NULL;
+SELECT COUNT(*) FROM sales WHERE product_id IS NULL;
+-no null value were found
+
+Duplicate rows detection: to identify potential duplicate customer records
+SELECT customer_id, COUNT(*)
+FROM sales
+GROUP BY customer_id
+HAVING COUNT(*) > 1;
+-found duplicate 
+
+Duplicate rows validation :to varify whether duplicates are legitimate
+select * from customer where customer_id ='LT-16765';
+-identified that duplicates are legimate and retained  
+
+Exact duplicate records (matching across all business columns except the primary key) were removed. 
+DELETE FROM customer a
+USING customer b
+WHERE a.row_id > b.row_id
+  AND a.order_id = b.order_id
+  AND a.order_date = b.order_date
+  AND a.ship_date = b.ship_date
+  AND a.ship_mode = b.ship_mode
+  AND a.customer_id = b.customer_id
+  AND a.customer_name = b.customer_name
+  AND a.segment = b.segment
+  AND a.country = b.country
+  AND a.city = b.city
+  AND a.state = b.state
+  AND a.postal_code = b.postal_code
+  AND a.region = b.region;
+
+Date Standardization
+Date columns contained mixed formats, As a result, date standardization was deferred to Power Query
+
+UPDATE CUSTOMER
+SET ship_date = TO_DATE(ship_date, 'MM/DD/YYYY');
+UPDATE CUSTOMER
+SET ship_date = ship_date::DATE; 
+
+update customer
+set ship_date= split_part(trim(ship_date),' ',1);
+update customer
+set order_date= split_part(trim(order_date),' ',1); 
+
+-Basic preprocessing was applied to isolate date values
+-Referential integrity verified
+-Legitimate duplicates preserved
+-Exact duplicates removed
