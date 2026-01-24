@@ -1,7 +1,0 @@
-SELECT
-    DATE_TRUNC('month', sale_date) AS month,
-    SUM(sales_amount) AS monthly_sales,
-    SUM(profit) AS monthly_profit
-FROM sales
-GROUP BY month
-ORDER BY month;
