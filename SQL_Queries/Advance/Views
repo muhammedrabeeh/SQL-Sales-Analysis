@@ -1,4 +1,17 @@
-Combines customer + sales + product
+Sales Fact View (Customer + Sales + Product)
+This query combines sales transactions with customer and product information to create a single, analysis-ready fact table.
+
+What this view provides
+-Transaction-level sales data
+-Customer demographics and geography
+-Product classification and details
+-Cleaned numeric fields for analysis
+Why this is useful
+-Reduces repeated joins in Power BI
+-Creates a flat table for faster reporting
+-Supports slicing by customer, product, and regio
+-Filters out invalid sales
+
 SELECT
     c.Order_Date,        
     c.Ship_Date,   
@@ -24,6 +37,12 @@ JOIN product p
 WHERE s.Sales >= 0;
 
 CUSTOMER LIFETIME VALUE
+This view calculates the lifetime value of each customer based on their full transaction history.
+What it measures
+-Total sales contribution
+-Total profit contribution
+-Customer activity across segments and regions
+
 CREATE VIEW vw_customer_lifetime AS
 SELECT
     customer_id,
@@ -36,8 +55,26 @@ SELECT
 FROM vw_sales_fact
 GROUP BY customer_id, Customer_Name, segment, region;
 
+-lifetime_sales → Total revenue from the customer
+-lifetime_profit → Total profit from the customer
+-total_orders → Customer engagement indicator (transaction count proxy)
+why this is useful
+-Identifies high-value customers
+-Supports retention and loyalty strategies
+-Helps in customer segmentation analysis
+Used for:
+-Customer ranking
+-Lifetime value analysis
+-Targeted marketing strategies
 
 PRODUCT PROFITABILITY
+This view evaluates product-level performance based on sales, profit, volume, and discount behavior.
+What it measures
+-Revenue performance per product
+-Profitability per product
+-Sales volume
+-Discount impact on profitability
+
 CREATE VIEW vw_product_performance AS
 SELECT
     product_id,
