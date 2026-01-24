@@ -1,3 +1,9 @@
+Product Sales Ranking Analysis 
+-This query ranks products based on their total sales performance.
+Purpose of the query
+-Identify top-selling products
+-Compare product performance using rankings
+
 SELECT
     p.product_name,
     SUM(s.sales_amount) AS total_sales,
@@ -5,3 +11,11 @@ SELECT
 FROM sales s
 JOIN product p ON s.product_id = p.product_id
 GROUP BY p.product_name;
+
+-Aggregates sales amount for each product
+-Uses the RANK() window function to assign a rank
+-Products with the same sales receive the same rank
+-Joins sales transactions with product details
+-Ensures each sale is associated with the correct product
+-Groups records at the product level
+-Required for aggregation before ranking
