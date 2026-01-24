@@ -19,3 +19,38 @@ JOIN product p ON s.product_id = p.product_id;
 -Includes sales amount and profit for each transaction
 -Joins the sales fact table with the customer dimension
 -Ensures each transaction is linked to the correct customer
+
+ Loss-making Orders 
+Purpose:
+Find orders that resulted in negative profit, even if sales occurred.
+
+SELECT distinct
+    c.order_id,
+	c.customer_name,
+	p.product_name,
+    SUM(s.sales)  AS order_sales,
+    SUM(s.profit) AS order_profit
+FROM customer c
+JOIN sales s
+    ON c.customer_id = s.customer_id
+join product p
+	on p.product_id=s.product_id
+GROUP BY c.order_id,c.customer_name,p.product_name
+HAVING SUM(s.profit) < 0
+ORDER BY order_profit;
+
+
+High-value Orders 
+Purpose:
+Identify orders that generate the most revenue
+
+SELECT
+    c.order_id,
+    SUM(s.sales) AS order_sales
+FROM customer c
+JOIN sales s
+    ON c.customer_id = s.customer_id
+GROUP BY c.order_id
+HAVING SUM(s.sales) > 1000
+ORDER BY order_sales DESC;
+
