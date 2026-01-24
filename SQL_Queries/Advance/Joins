@@ -1,9 +1,21 @@
+Sales Transaction Details with Customer and Product Information
+-This query retrieves detailed sales transaction records by combining sales data with customer and product information
+-Create a denormalized view for analysis and reporting
+-Combine transactional and descriptive data
+-Prepare a flat table suitable for Power BI visuals
+
 SELECT
-    s.sale_id,
+    s.customer_id,
     c.customer_name,
+	c.ship_date,
     p.product_name,
-    s.sales_amount,
+    s.sales,
     s.profit
 FROM sales s
 JOIN customer c ON s.customer_id = c.customer_id
 JOIN product p ON s.product_id = p.product_id;
+
+-Selects customer, product, and sales-related fields
+-Includes sales amount and profit for each transaction
+-Joins the sales fact table with the customer dimension
+-Ensures each transaction is linked to the correct customer
