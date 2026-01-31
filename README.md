@@ -1,4 +1,4 @@
-storedata Sales Performance Analysis
+Storedata Sales Performance Analysis
 
 -Project Overview:
 This project analyzes sales and profitability performance of a retail superstore using historical order data from 2014 to 2017.
