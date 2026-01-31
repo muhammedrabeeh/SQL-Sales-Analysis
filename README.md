@@ -59,3 +59,4 @@ Higher discounts do not consistently lead to higher profitability
 - Conclusion
 This project highlights a business with strong overall growth, but also reveals profitability risks at the product and regional level.
 By focusing on high-margin products, improving underperforming regions, and optimizing discount strategies, the company can further improve profitability and reduce risk.
+-Bussiness insights added in SQL queries , insights 
