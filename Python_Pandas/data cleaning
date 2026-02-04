@@ -1,0 +1,26 @@
+customer = pd.read_excel ("store data1.xlsx")
+product = pd.read_excel ("store data1.xlsx", sheet_name= 1)
+sales = pd.read_excel ("store data1.xlsx", sheet_name= 2)
+
+
+customer.isna().sum()
+product.isna().sum()
+sales.isna().sum()
+
+
+customer.duplicated().sum()
+product.duplicated().sum()
+sales.duplicated().sum()
+
+
+customer = customer.drop_duplicates()
+product = product.drop_duplicates()
+sales = sales.drop_duplicates()
+
+
+full_data["profit"] = pd.to_numeric(full_data["profit"], errors="coerce")
+full_data = full_data.apply(pd.to_numeric, errors="coerce")
+
+
+full_data["order_date"] = pd.to_datetime(full_data["order_date"])
+full_data["ship_date"] = pd.to_datetime(full_data["ship_date"])
